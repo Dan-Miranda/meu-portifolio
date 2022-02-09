@@ -1,6 +1,7 @@
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import {
   Box,
+  Container,
   Flex,
   IconButton,
   Stack,
@@ -36,9 +37,9 @@ export function Header() {
   return (
     <Box
       as="header"
-      position="fixed"
       width="100%"
       backgroundColor="gray.900"
+      position="fixed"
     >
       <Flex
         height={HEADER_SIZE}
@@ -66,13 +67,17 @@ export function Header() {
           paddingY="1rem"
           display={{ sm: 'none' }}
           backgroundColor="gray.900"
-          borderBottomEndRadius={isOpen ? '2xl' : 0}
-          borderBottomStartRadius={isOpen ? '2xl' : 0}
+          borderBottomEndRadius="2xl"
+          borderBottomStartRadius="2xl"
           paddingX="1rem"
         >
           <Stack as={'nav'} spacing={4}>
             {links.map((link) => (
-              <NavLink key={link.name} href={`#${link.htmlId}`}>{link.name}</NavLink>
+              <NavLink
+                key={link.name}
+                href={link.htmlId}
+                handleToggle={handleToggle}
+              >{link.name}</NavLink>
             ))}
           </Stack>
         </Box>

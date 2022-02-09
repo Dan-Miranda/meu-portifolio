@@ -30,7 +30,7 @@ export function SectionLinks(props: ISectionLinks) {
         backgroundColor="gray.900"
       >
         {links.map((link) => (
-          <NavLink key={link.name} href={`#${link.htmlId}`}>
+          <NavLink key={link.name} href={link.htmlId}>
             {link.name}
           </NavLink>
         ))}

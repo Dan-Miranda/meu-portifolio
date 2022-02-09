@@ -5,11 +5,13 @@ export function Presentation() {
   return (
     <Flex
       as="section"
-      id="Presentation"
+      id="presentation"
       width="100%"
       height="100%"
       backgroundColor={'gray.300'}
       paddingTop={HEADER_SIZE}
+      align="center"
+      justify="center"
     >
       <Text>Presentation</Text>
     </Flex>
