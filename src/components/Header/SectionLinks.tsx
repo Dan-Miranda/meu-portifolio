@@ -1,11 +1,7 @@
 import { Heading, HStack, Text } from '@chakra-ui/react'
 import { useState } from 'react'
+import { ILink } from '../../sections/linksSections'
 import { NavLink } from './NavLink'
-
-export interface ILink {
-  name: string,
-  htmlId: string
-}
 
 interface ISectionLinks {
   links: Array<ILink>

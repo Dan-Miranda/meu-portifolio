@@ -6,10 +6,11 @@ import {
   Stack,
   useDisclosure
 } from '@chakra-ui/react'
+import { linksSections } from '../../sections/linksSections'
 import { HEADER_SIZE } from '../../utils/constants'
 import { AvatarMenu } from './AvatarMenu'
 import { NavLink } from './NavLink'
-import { ILink, SectionLinks } from './SectionLinks'
+import { SectionLinks } from './SectionLinks'
 
 export function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -18,33 +19,19 @@ export function Header() {
     return isOpen ? onClose() : onOpen()
   }
 
-  const links: Array<ILink> = [
-    {
-      name: 'Apresentação',
-      htmlId: 'presentation'
-    },
-    {
-      name: 'Habilidades',
-      htmlId: 'skills'
-    },
-    {
-      name: 'Contato',
-      htmlId: 'contatc'
-    }
-  ]
-
   return (
     <Box
       as="header"
       width="100%"
       backgroundColor="gray.900"
       position="fixed"
+      zIndex="1"
     >
       <Flex
         height={HEADER_SIZE}
         alignItems={'center'}
         justifyContent={'space-between'}
-        paddingX="2rem"
+        paddingX="1rem"
       >
         <IconButton
           size={'md'}
@@ -57,7 +44,7 @@ export function Header() {
           _focus={{ backgroundColor: 'gray.900' }}
           _hover={{ backgroundColor: 'gray.900' }}
         />
-        <SectionLinks links={links} />
+        <SectionLinks links={linksSections} />
         <AvatarMenu />
       </Flex>
       {isOpen &&
@@ -71,7 +58,7 @@ export function Header() {
           paddingX="1rem"
         >
           <Stack as={'nav'} spacing={4}>
-            {links.map((link) => (
+            {linksSections.map((link) => (
               <NavLink
                 key={link.name}
                 handleToggle={handleToggle}

@@ -1,24 +1,21 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 import { Link } from '@chakra-ui/react'
-import { ILink } from './SectionLinks'
+import { scrollToSection } from '../../utils/functions'
+import { ILink } from '../../sections/linksSections'
 
-interface IHeaderProps {
+interface INavLinkProps {
   link: ILink,
   focus?: [focus: string, setFocus: Dispatch<SetStateAction<string>>],
   handleToggle?: () => void
 }
 
-export const NavLink = (props: IHeaderProps) => {
+export const NavLink = (props: INavLinkProps) => {
   const { handleToggle, link, focus } = { ...props }
   const [focusLink, setFocusLink] = focus || useState()
 
-  function scrollToSection() {
-    const section = document.getElementById(link.htmlId)
-
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' })
-      setFocusLink(link.name)
-    }
+  function scrollToSectionAndSetFocusLink() {
+    scrollToSection(link.htmlId)
+    setFocusLink(link.name)
 
     return handleToggle ? handleToggle() : null
   }
@@ -34,7 +31,7 @@ export const NavLink = (props: IHeaderProps) => {
         textDecoration: 'none',
         backgroundColor: 'purple.700'
       }}
-      onClick={scrollToSection}
+      onClick={() => scrollToSectionAndSetFocusLink()}
     >
       {link.name}
     </Link>
