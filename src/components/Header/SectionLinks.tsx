@@ -1,4 +1,5 @@
 import { Heading, HStack, Text } from '@chakra-ui/react'
+import { useState } from 'react'
 import { NavLink } from './NavLink'
 
 export interface ILink {
@@ -12,6 +13,16 @@ interface ISectionLinks {
 
 export function SectionLinks(props: ISectionLinks) {
   const { links } = { ...props }
+  const [focus, setFocus] = useState(links[0].name)
+
+  function renderLinks() {
+    return links.map((link) => {
+      return (
+        <NavLink key={link.name} link={link} focus={[focus, setFocus]} />
+      )
+    })
+  }
+
   return (
     <HStack spacing={8} alignItems={'center'} backgroundColor="gray.900" >
       <Heading
@@ -29,11 +40,7 @@ export function SectionLinks(props: ISectionLinks) {
         display={{ base: 'none', sm: 'flex' }}
         backgroundColor="gray.900"
       >
-        {links.map((link) => (
-          <NavLink key={link.name} href={link.htmlId}>
-            {link.name}
-          </NavLink>
-        ))}
+        {renderLinks()}
       </HStack>
     </HStack>
   )

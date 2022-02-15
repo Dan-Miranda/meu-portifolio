@@ -1,7 +1,6 @@
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons'
 import {
   Box,
-  Container,
   Flex,
   IconButton,
   Stack,
@@ -61,8 +60,8 @@ export function Header() {
         <SectionLinks links={links} />
         <AvatarMenu />
       </Flex>
-      {isOpen
-        ? (
+      {isOpen &&
+        (
         <Box
           paddingY="1rem"
           display={{ sm: 'none' }}
@@ -75,14 +74,13 @@ export function Header() {
             {links.map((link) => (
               <NavLink
                 key={link.name}
-                href={link.htmlId}
                 handleToggle={handleToggle}
-              >{link.name}</NavLink>
+                link={link}
+              />
             ))}
           </Stack>
         </Box>
-          )
-        : null}
+        )}
 
     </Box>
   )
