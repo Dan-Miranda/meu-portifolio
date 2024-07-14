@@ -26,12 +26,7 @@ export const theme = extendTheme({
   styles: {
     global: {
       body: {
-        height: '100vh',
-        bgGradient: 'linear(to-b, gray.900, gray.700)',
         color: 'gray.50'
-      },
-      '#__next': {
-        height: '100%'
       },
       header: {
         height: '4rem'

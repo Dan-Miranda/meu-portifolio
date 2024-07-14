@@ -41,7 +41,7 @@ export function ModalAboutMe({ sizeModal }: IProps) {
 
       <Modal onClose={onClose} size={sizeModal} isOpen={isOpen}>
         <ModalOverlay />
-        <ModalContent bgGradient="linear(to-b, gray.900, gray.700)" height="100%">
+        <ModalContent bgGradient="linear(to-b, gray.900, gray.700)" height={sizeModal === 'full' ? '100%' : 'auto'}>
           <ModalHeader>
             <Heading as="h3" size="lg">Sobre mim...</Heading>
           </ModalHeader>

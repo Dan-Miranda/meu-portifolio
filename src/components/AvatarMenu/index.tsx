@@ -13,12 +13,15 @@ export function AvatarMenu() {
         >
           <Avatar size="md" src="https://github.com/Dan-Miranda.png" />
         </MenuButton>
-        <MenuList backgroundColor="gray.900" border="none">
+        <MenuList backgroundColor="gray.900" >
           <MenuGroup title="Contato">
             <MenuItem
               as="a"
               target="_blank"
               href="mailto:danillo.sm89@gmail.com"
+              _hover={{
+                backgroundColor: 'purple.700'
+              }}
               icon={ <FaGoogle /> }
             >
               E-mail
@@ -27,6 +30,9 @@ export function AvatarMenu() {
               as="a"
               target="_blank"
               href="https://api.whatsapp.com/send?phone=5514998832307&text=Olá,%20Danillo"
+              _hover={{
+                backgroundColor: 'purple.700'
+              }}
               icon={ <FaWhatsapp /> }
             >
               Whatsapp
@@ -38,6 +44,9 @@ export function AvatarMenu() {
               as="a"
               target="_blank"
               href="https://www.linkedin.com/in/danillo-miranda/"
+              _hover={{
+                backgroundColor: 'purple.700'
+              }}
               icon={ <FaLinkedinIn /> }
             >
               Linkedin
@@ -46,6 +55,9 @@ export function AvatarMenu() {
               as="a"
               target="_blank"
               href="https://www.facebook.com/danillo.santosmiranda"
+              _hover={{
+                backgroundColor: 'purple.700'
+              }}
               icon={ <FaFacebook />}
             >
               Facebook
@@ -54,7 +66,11 @@ export function AvatarMenu() {
               as="a"
               target="_blank"
               href="https://www.instagram.com/dan.o.boy/"
-              icon={ <FaInstagram /> }>
+              _hover={{
+                backgroundColor: 'purple.700'
+              }}
+              icon={ <FaInstagram /> }
+            >
               Instagram
             </MenuItem>
           </MenuGroup>
