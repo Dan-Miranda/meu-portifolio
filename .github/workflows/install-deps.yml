@@ -9,12 +9,11 @@ on:
       - master
 
 jobs:
-  install_dependencies:
-    name: Install Dependencies
+  install_deps:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [18.17.1]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
