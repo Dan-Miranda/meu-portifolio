@@ -20,7 +20,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install, build, and test example
+      - name: Install deps
         working-directory: ./
-        run: |
-          npm install
+        run: npm i
